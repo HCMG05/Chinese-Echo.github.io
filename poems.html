@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电子诗集</title>
+    <style>
+        :root {
+            --background-color: #f0f8ff; /* 预留的背景变量 */
+        }
+        
+        body {
+            font-family: 'SimSun', serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .poetry-container {
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px;
+        }
+        
+        .poetry-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-weight: normal;
+        }
+        
+        .poem {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .poem-title {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #3498db;
+            font-weight: normal;
+        }
+        
+        .poem-content {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .poem-author {
+            text-align: right;
+            font-style: italic;
+            margin-top: 15px;
+            color: #7f8c8d;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .nav-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="poetry-container">
+        <h1 class="poetry-title">电子诗集</h1>
+        
+        <div class="poem">
+            <h2 class="poem-title">静夜思</h2>
+            <div class="poem-content">
+                床前明月光，<br>
+                疑是地上霜。<br>
+                举头望明月，<br>
+                低头思故乡。
+            </div>
+            <div class="poem-author">——李白</div>
+        </div>
+        
+        <div class="poem">
+            <h2 class="poem-title">春晓</h2>
+            <div class="poem-content">
+                春眠不觉晓，<br>
+                处处闻啼鸟。<br>
+                夜来风雨声，<br>
+                花落知多少。
+            </div>
+            <div class="poem-author">——孟浩然</div>
+        </div>
+        
+        <div class="poem">
+            <h2 class="poem-title">登鹳雀楼</h2>
+            <div class="poem-content">
+                白日依山尽，<br>
+                黄河入海流。<br>
+                欲穷千里目，<br>
+                更上一层楼。
+            </div>
+            <div class="poem-author">——王之涣</div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-btn">上一首</button>
+            <button class="nav-btn">下一首</button>
+        </div>
+    </div>
+</body>
+</html>

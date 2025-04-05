@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>胡言4</title>
+    <link rel="stylesheet" href="css/style_hy4.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>
+            <span id="typingTitle"></span>
+            <span id="underscore" style="display: none;">_</span>
+        </h1>
+
+        <div class="input-group">
+            <label for="userInput">请输入内容：</label>
+            <textarea id="userInput" placeholder="在这里输入..."></textarea>
+        </div>
+        
+        <div class="output-group">
+            <label for="outputBox">加密结果：</label>
+            <div class="output-box" id="outputBox"></div>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-primary" onclick="encrypt()">加密</button>
+            <button class="btn-primary" onclick="decrypt()">解密</button>
+            <button class="btn-secondary" onclick="copyToClipboard()">复制</button>
+            <button class="btn-warning" onclick="location.reload()">清空</button>
+            <button class="btn-secondary" onclick="window.location.href='index.html'">返回</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 祸辰的加密页面. 保留所有权利.</p>
+    </div>
+
+    <script>
+        // 打字效果的标题内容
+        const titleText = "胡言@HCMG";
+        let index = 0;
+        let underscoreInterval;
+
+        // 打字效果函数
+        function typeWriter() {
+            if (index < titleText.length) {
+                document.getElementById("typingTitle").innerHTML += titleText.charAt(index);
+                index++;
+                setTimeout(typeWriter, 190);
+            } else {
+                // 打字效果完成后启动下划线动画
+                startUnderscoreAnimation();
+            }
+        }
+        
+        // 启动下划线动画
+        function startUnderscoreAnimation() {
+            const underscoreElement = document.getElementById("underscore");
+            underscoreElement.style.display = "inline";
+            
+            underscoreInterval = setInterval(() => {
+                if (underscoreElement.style.opacity === "0" || underscoreElement.style.opacity === "") {
+                    underscoreElement.style.opacity = "1";
+                } else {
+                    underscoreElement.style.opacity = "0";
+                }
+            }, 500); // 每500毫秒切换一次
+        }
+        
+        // 页面加载完成后启动打字效果
+        window.onload = typeWriter;
+        
+        // 加密函数
+        function encrypt() {
+            const input = document.getElementById('userInput').value;
+            $.ajax({
+                url: 'http://localhost:15271/encrypt',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ pstr: input }),
+                success: function(response) {
+                    if (response.result) {
+                        document.getElementById('outputBox').textContent = response.result;
+                    } else {
+                        document.getElementById('outputBox').textContent = response.error;
+                    }
+                },
+                error: function(error) {
+                    document.getElementById('outputBox').textContent = "加密失败";
+                }
+            });
+        }
+        
+        // 解密函数
+        function decrypt() {
+            const input = document.getElementById('userInput').value;
+            $.ajax({
+                url: 'http://localhost:15271/decrypt',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ cstr: input }),
+                success: function(response) {
+                    if (response.result) {
+                        document.getElementById('outputBox').textContent = response.result;
+                    } else {
+                        document.getElementById('outputBox').textContent = response.error;
+                    }
+                },
+                error: function(error) {
+                    document.getElementById('outputBox').textContent = "解密失败";
+                }
+            });
+        }
+        
+        // 复制到剪贴板函数
+        function copyToClipboard() {
+            const output = document.getElementById('outputBox').textContent;
+            if (output) {
+                navigator.clipboard.writeText(output)
+                    .then(() => {
+                        showCopyNotification();
+                    })
+                    .catch(err => {
+                        console.error('复制失败:', err);
+                    });
+            } else {
+                const notification = document.createElement('div');
+                notification.className = 'copy-notification';
+                notification.textContent = '无内容可复制';
+                document.body.appendChild(notification);
+                setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 2000);
+            }
+        }
+        
+        // 显示复制通知
+        function showCopyNotification() {
+            const notification = document.createElement('div');
+            notification.className = 'copy-notification';
+            notification.textContent = '输出已复制到剪贴板';
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

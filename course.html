@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人课表</title>
+    <link rel="stylesheet" href="css/style_course.css">
+    <script>
+        const usedColors = new Set();
+        
+        function generateRandomLightColor() {
+            let red, green, blue;
+            let color;
+            
+            do {
+                red = Math.floor(Math.random() * 16) + 240; // 240-255
+                green = Math.floor(Math.random() * 21) + 220; // 220-240
+                blue = Math.floor(Math.random() * 21) + 200; // 200-220
+                
+                // 格式化为CSS颜色字符串
+                color = `rgb(${red}, ${green}, ${blue})`;
+            } while (usedColors.has(color)); // 如果颜色已存在，重新生成
+            
+            // 将新颜色添加到已使用的颜色集合中
+            usedColors.add(color);
+            
+            return color;
+        }
+        
+        // 应用随机背景色到所有具有.centered-td类的单元格
+        document.addEventListener('DOMContentLoaded', function() {
+            const tds = document.querySelectorAll('.co');
+            tds.forEach(td => {
+                td.style.backgroundColor = generateRandomLightColor();
+            });
+        });
+        </script>
+</head>
+<body>
+    <div class="back-link">
+        <a href="index.html"><button>回到主页</button></a><br><br>
+        <a href="course.html"><button>刷新配色</button></a>
+    </div>
+    <div class="container">
+        <h1 style="text-align: center;">2024-2025学年第2学期 个人课表</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>时间段</th>
+                    <th>节次</th>
+                    <th>星期一</th>
+                    <th>星期二</th>
+                    <th>星期三</th>
+                    <th>星期四</th>
+                    <th>星期五</th>
+                    <th>星期六</th>
+                    <th>星期日</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>上午</td>
+                    <td>1</td>
+                    <td rowspan="2" class="co">
+                        开源硬件概论△<br>
+                    </td>
+                    <td rowspan="3" class="co">
+                        教育学△<br>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td rowspan="3" class="co">
+                        数据库原理及应用△<br>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>3</td>
+                    <td rowspan="3" class="co">
+                        平面设计与制作△<br>
+                        </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>4</td>
+                    <td></td>
+                    <td rowspan="2" class="co">
+                        大学外语（三）—基础雅思△<br>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>下午</td>
+                    <td>6</td>
+                    <td rowspan="3" class="co">
+                        操作系统△<br>
+                    </td>
+                    <td rowspan="2" class="co">
+                        大学体育—乒乓球（初级）★<br>
+                    </td>
+                    <td rowspan="2" class="co">
+                        学科教学理论与实践△<br>
+                    </td>
+                    <td rowspan="2" class="co">
+                        计算机网络△<br>
+                     </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="co">
+                        关爱生命-急救与自救技能△<br>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>晚上</td>
+                    <td>10</td>
+                    <td rowspan="2" class="co">
+                        操作系统△<br>
+                    </td>
+                    <td class="co">
+                        民俗与旅游△<br>
+                     </td>
+                    <td rowspan="3" class="co">
+                        Web开发技术△<br>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="co">
+                        特殊教育概论△<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <div>
+            <p>&copy; 2025 祸辰的课表页面. 保留所有权利.</p>
+        </div>
+    </footer>
+</body>
+</html>
