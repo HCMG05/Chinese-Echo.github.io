@@ -1,0 +1,94 @@
+/* 社区主内容区域 */
+.community-main {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+/* 社区标题 */
+.community-title {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+/* 发帖表单 */
+.post-form {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.post-form input,
+.post-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+.post-form button {
+    background-color: #99e9ed;
+    color: #0A192F;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.post-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 帖子列表 */
+.post-list {
+    text-align: left;
+}
+
+.post-item {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: background-color 0.3s, color 0.3s; /* 添加过渡效果 */
+}
+
+.post-item a {
+    text-decoration: none; /* 去除超链接下划线 */
+    color: inherit; /* 让超链接颜色继承父元素 */
+}
+
+.post-item:hover {
+    background-color: #0e033f; /* 鼠标悬停时背景变灰白色 */
+    color: #000; /* 鼠标悬停时文字变黑色 */
+}
+
+/* 添加这部分代码，确保悬停时超链接文字也变为黑色 */
+.post-item a:hover {
+    color: #000;
+}
+
+.post-title {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.post-content {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.post-meta {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}

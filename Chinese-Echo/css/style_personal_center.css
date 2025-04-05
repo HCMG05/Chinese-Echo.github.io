@@ -1,0 +1,118 @@
+/* 个人中心主内容区域 */
+.personal-center-main {
+    display: flex;
+    padding: 4rem 5%;
+    gap: 2rem;
+}
+
+/* 侧边栏 */
+.sidebar {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.user-profile {
+    text-align: center;
+}
+
+.user-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.user-name {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.user-email {
+    color: var(--text-secondary);
+}
+
+.sidebar-nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 1rem;
+}
+
+.sidebar-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar-nav a:hover {
+    color: var(--accent-color);
+}
+
+/* 主内容区域 */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-section {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.info-section h2 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.info-section p {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    height: 20px;
+    margin-top: 1rem;
+}
+
+.progress {
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    height: 100%;
+}
+
+.info-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-section ul li {
+    margin-bottom: 1rem;
+}
+
+.info-section ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.info-section ul li a:hover {
+    color: var(--accent-color);
+}

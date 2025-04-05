@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Echo - 课程中心</title>
+    <link rel="stylesheet" href="../css/style_index.css">
+    <link rel="stylesheet" href="../css/style_course.css">
+</head>
+<body>
+    <!-- 页面头部 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../img/logo/logo.png" alt="Chinese Echo" class="logo-img">
+                <div class="logo-text">
+                    <span class="slogan">一带一路商务汉语教育</span>
+                    <span class="subtitle">革新者 | 丝路新声 汉语新潮</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="course.html">课程中心</a></li>
+                <li><a href="ai_learn.html">AI学习</a></li>
+                <li><a href="business.html">商务对接</a></li>
+                <li><a href="community.html">社区</a></li>
+                <li><a href="login.html">个人中心</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="course-main">
+        <h1 class="course-title">课程中心</h1>
+        <div class="course-slider">
+            <button class="prev-btn">&lt;</button>
+            <div class="course-list-slider">
+                <!-- 原有课程项 -->
+                <div class="course-item">
+                    <img src="../img/other/course_1.jpg" alt="课程1">
+                    <h2 class="course-name">商务汉语听力练习</h2>
+                    <p class="course-description">义乌商贸城真实场景语音资料，模拟商务汉语现实应用情景。</p>
+                    <a href="#" class="course-btn">查看详情</a>
+                </div>
+                <div class="course-item">
+                    <img src="../img/other/course_2.png" alt="课程2">
+                    <h2 class="course-name">简单交流与询价用语</h2>
+                    <p class="course-description">商务汉语基础课程，夯实跨国商贸基本功。</p>
+                    <a href="#" class="course-btn">查看详情</a>
+                </div>
+                <div class="course-item">
+                    <img src="../img/other/course_3.png" alt="课程3">
+                    <h2 class="course-name">商品描述与价格协商</h2>
+                    <p class="course-description">明确心选商品和意向价格，商业合作更流畅。</p>
+                    <a href="#" class="course-btn">查看详情</a>
+                </div>
+                <div class="course-item">
+                    <img src="../img/other/course_4.png" alt="课程4">
+                    <h2 class="course-name">条款阅读与谈判策略</h2>
+                    <p class="course-description">协商沟通交易明细，确定商业合同，商贸合作有保障。</p>
+                    <a href="#" class="course-btn">查看详情</a>
+                </div>
+                <div class="course-item">
+                    <img src="../img/other/course_5.png" alt="课程5">
+                    <h2 class="course-name">商务汉语语法练习</h2>
+                    <p class="course-description">专业教师教学，商务汉语表达更准确。</p>
+                    <a href="#" class="course-btn">查看详情</a>
+                </div>
+            </div>
+            <button class="next-btn">&gt;</button>
+        </div>
+    </main>
+
+    <!-- 页面尾部 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="about.html">关于我们</a>
+                <a href="help.html">帮助中心</a>
+                <a href="community.html">联系我们</a>
+            </div>
+            <div class="social-links">
+                <a href="index.html"><img src="../img/logo/logo2.png" alt="Chinese Echo"></a>
+                <a href="https://www.facebook.com/"><img src="../img/logo/facebook.jpg" alt="Facebook"></a>
+                <a href="https://x.com/"><img src="../img/logo/x.jpg" alt="X"></a>
+                <a href="https://www.instagram.com/"><img src="../img/logo/is.jpg" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Chinese Echo. 版权所有</p>
+        </div>
+    </footer>
+
+    <script>
+        const courseListSlider = document.querySelector('.course-list-slider');
+        const items = document.querySelectorAll('.course-item');
+        const itemWidth = 320; // 包含margin的实际宽度
+        const visibleItems = 3; // 修改为实际可见数量
+        let currentIndex = 0;
+
+        // 克隆课程项实现无缝滚动
+        const clonesBefore = Array.from(items).slice(-visibleItems).map(item => item.cloneNode(true));
+        const clonesAfter = Array.from(items).slice(0, visibleItems).map(item => item.cloneNode(true));
+        
+        courseListSlider.prepend(...clonesBefore);
+        courseListSlider.append(...clonesAfter);
+
+        // 设置初始位置
+        courseListSlider.style.transform = `translateX(-${itemWidth * visibleItems}px)`;
+
+        // 设置容器宽度
+        const totalItems = items.length + visibleItems * 2;
+        courseListSlider.style.width = `${itemWidth * totalItems}px`;
+
+        function updateSlide() {
+            courseListSlider.style.transition = 'transform 0.5s ease';
+            courseListSlider.style.transform = `translateX(-${itemWidth * (currentIndex + visibleItems)}px)`;
+        }
+
+        function handleTransitionEnd() {
+            if (currentIndex >= items.length) {
+                currentIndex = 0;
+                courseListSlider.style.transition = 'none';
+                courseListSlider.style.transform = `translateX(-${itemWidth * visibleItems}px)`;
+                setTimeout(() => courseListSlider.style.transition = 'transform 0.5s ease');
+            }
+            if (currentIndex < 0) {
+                currentIndex = items.length - 1;
+                courseListSlider.style.transition = 'none';
+                courseListSlider.style.transform = `translateX(-${itemWidth * (items.length + visibleItems - 1)}px)`;
+                setTimeout(() => courseListSlider.style.transition = 'transform 0.5s ease');
+            }
+        }
+
+        function nextSlide() {
+            currentIndex++;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentIndex--;
+            updateSlide();
+        }
+
+        // 事件监听
+        courseListSlider.addEventListener('transitionend', handleTransitionEnd);
+        document.querySelector('.prev-btn').addEventListener('click', prevSlide);
+        document.querySelector('.next-btn').addEventListener('click', nextSlide);
+    </script>
+</body>
+</html>
