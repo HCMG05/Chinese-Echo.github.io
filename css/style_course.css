@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f7f0;
+    overflow: hidden;
+}
+.container {
+    text-align: center;
+    margin: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.back-link a {
+    color: #4e2908;
+    text-decoration: none;
+}
+.back-link a:hover {
+    text-decoration: underline;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: break-word;
+}
+th {
+    background-color: #cc9726;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #fff8f0;
+}
+tr:nth-child(odd) {
+    background-color: #fff8f0;
+}
+.course-info {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+}
+.co {
+    text-align: center;
+    vertical-align: middle;
+    background-color: #f0f0f0;
+}
+
+button {
+    background-color: #e7bf85; /* 橙色按钮 */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #faa148; /* 深橙色悬停效果 */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #4e2908;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
